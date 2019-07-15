@@ -30,3 +30,22 @@
     transform: rotate(360deg);
   }
 }
+
+.book {
+  display:inline-block;
+  margin-left:0px;
+  padding-left:0px;
+
+}
+
+.book img {
+  float:left;
+  height:200;
+  width:200;
+}
+
+.book p {
+  text-align:right;
+  display:inline-block;
+  padding:0px;
+}

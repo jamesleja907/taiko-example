@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Book } from './Book'
-import { Hiring } from './Hiring'
-import { NotHiring } from './NotHiring'
 
 class Library extends React.Component {
 
@@ -14,8 +12,6 @@ class Library extends React.Component {
 	
 	state = { 
 		open: true,
-		freeBookmark: false,
-		hiring: true,
 		data: [],
 		loading: false
 	}
@@ -39,8 +35,7 @@ class Library extends React.Component {
 	render() {
 		const { books } = this.props
 		return (
-			<div>
-				{this.state.hiring ? <Hiring /> : <NotHiring />}
+			<div display="flex">
 				{this.state.loading 
 					? "loading..."
 					: <div>
@@ -65,7 +60,10 @@ class Library extends React.Component {
 							title={book.title} 
 							author={book.author} 
 							pages={book.pages}
-							freeBookmark={this.state.freeBookmark}/>
+                            favouriteBook={book.favouriteBook}
+                            currentlyReading={book.currentlyReading}
+                            image={book.image}
+						/>
 				)}
 			</div>
 		)
