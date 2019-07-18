@@ -15,3 +15,32 @@ it('loads the initial library correctly', async () => {
     await text('The library is open').exists();
     await closeBrowser();
 });
+
+// it('demonstrates request/response', async () => {
+//   await openBrowser();
+//   await goto("localhost:3000");
+//   await text('The library is open').exists();
+//   await closeBrowser();
+// });
+
+// it('demonstrates different selectors', async () => {
+//   await openBrowser();
+//   await goto("localhost:3000");
+//   await text('The library is open').exists();
+//   await closeBrowser();
+// })
+
+
+// it('clicking the start/stop reading button will correctly update the book (demonstrate proximity selectors', async () => {
+//   await openBrowser();
+//   await goto("localhost:3000");
+//   await text('The library is open').exists();
+//   await closeBrowser();
+// });
+
+// it('shows highlight and screenshot', async () => {
+//   await openBrowser();
+//   await goto("localhost:3000");
+//   await text('The library is open').exists();
+//   await closeBrowser();
+// });
