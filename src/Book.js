@@ -5,7 +5,8 @@ class Book extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentlyReading: this.props.currentlyReading
+      currentlyReading: this.props.currentlyReading,
+      isFavourite: this.props.favouriteBook
     }
   }
 
@@ -13,15 +14,21 @@ class Book extends React.Component {
    this.setState({currentlyReading : isReading});
   }
 
+  toggleFavourite = () => {
+    this.setState(({isFavourite}) => ({isFavourite : !isFavourite}));
+  }
+
   render() {
-    const {title, author, pages, favouriteBook, image} = this.props;
+    const {title, author, pages, image, imageAlt} = this.props;
     return (
       <div className="book">
-        <img src={image} width="200" height="300" alt="Book cover"/>
+        <img src={image} width="200" height="300" alt={imageAlt}/>
         <div className="bookInfo">
           <p>{title} by: {author} {pages} pages long</p>
-          <p>Favourite Book: {favouriteBook ? 'yes!' : 'no!'}</p>
-          <p>You {this.state.currentlyReading ? 'are' : 'are not'} currently reading the book</p>
+          <p>This {this.state.isFavourite ? 'is' : 'is not'} one of my favourite books
+            <input id="checkboxId" type="checkbox" checked={this.state.isFavourite} onChange={this.toggleFavourite.bind(this)}></input>
+          </p>
+          <p>I {this.state.currentlyReading ? 'am' : 'am not'} currently reading the book</p>
           <button className="reading-button" onClick={this.toggleReading.bind(this, true)}>Start Reading</button>
           <button className="reading-button" onClick={this.toggleReading.bind(this, false)}>Stop Reading</button>
         </div>

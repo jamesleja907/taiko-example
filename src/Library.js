@@ -63,6 +63,7 @@ class Library extends React.Component {
                             favouriteBook={book.favouriteBook}
                             currentlyReading={book.currentlyReading}
                             image={book.image}
+                            imageAlt={book.imageAlt}
 						/>
 				)}
 			</div>

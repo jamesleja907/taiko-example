@@ -21,6 +21,10 @@
   padding:5px;
 }
 
+.book-info p input {
+  padding:10px;
+}
+
 .reading-button {
   margin:10px;
 }
