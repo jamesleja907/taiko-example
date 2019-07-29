@@ -18,9 +18,9 @@ let bookList = [
 	"currentlyReading": true, "image": lordOfTheRingsImage, "imageAlt": "LordOfTheRingsCover"},
     {"title": "The Girl on the Train", "author": "Paula Hawkins", "pages": 320, "favouriteBook": false,
     "currentlyReading": false, "image": girlOnTrainImage, "imageAlt": "GirlOnTrainCover"}
-    ]
+    ];
 
 render(
 	<Library books={bookList} />, 
 	document.getElementById('root')
-)
+);

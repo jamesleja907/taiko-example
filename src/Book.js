@@ -12,11 +12,11 @@ class Book extends React.Component {
 
   toggleReading = (isReading) => {
    this.setState({currentlyReading : isReading});
-  }
+  };
 
   toggleFavourite = () => {
     this.setState(({isFavourite}) => ({isFavourite : !isFavourite}));
-  }
+  };
 
   render() {
     const {title, author, pages, image, imageAlt} = this.props;

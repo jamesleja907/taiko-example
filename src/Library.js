@@ -8,19 +8,22 @@ class Library extends React.Component {
 		books: [
 			{"title": "Tahoe Tales", "author": "Chet Whitley", "pages": 1000}
 		]
-	}
+	};
 	
-	state = { 
+	state = {
 		open: true,
 		data: [],
 		loading: false
-	}
+	};
 
 	componentDidMount() {
-		this.setState({loading: true})
+		this.setState({loading: true});
 		fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/1')
 			.then(data => data.json())
-			.then(data => this.setState({data, loading: false}))
+			.then(data => {
+			  console.log(data);
+			  this.setState({data, loading: false})
+      })
 	}
 
 	componentDidUpdate() {
@@ -31,9 +34,9 @@ class Library extends React.Component {
 		this.setState(prevState => ({
 			open: !prevState.open
 		}))
-	}
+	};
 	render() {
-		const { books } = this.props
+		const { books } = this.props;
 		return (
 			<div display="flex">
 				{this.state.loading 
@@ -73,13 +76,13 @@ class Library extends React.Component {
 
 Library.propTypes = {
 	books: PropTypes.array
-}
+};
 
 Book.propTypes = {
 	title: PropTypes.string,
 	author: PropTypes.string,
 	pages: PropTypes.number,
 	freeBookmark: PropTypes.bool
-}
+};
 
 export default Library
