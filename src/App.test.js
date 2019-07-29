@@ -52,11 +52,11 @@ it('clicking the change button will change between closed/open library (demonstr
 it('should display the product of the week correctly (demonstrates request/response)', async () => {
   const {intercept, screenshot} = require('taiko');
   const mockData = [{'id': '1', 'name': 'Lagavulin 16', 'image': 'https://cdn2.masterofmalt.com/whiskies/p-2813/lagavulin/lagavulin-16-year-old-whisky.jpg?ss=2.0'}];
-
+  // needed to avoid CORS error
   await openBrowser({args: ["--disable-web-security"]});
 
   await intercept("https://hplussport.com/api/products/order/price/sort/asc/qty/1", {"body": mockData});
-  await goto("localhost:3000", {waitForEvents:['firstMeaningfulPaint']});
+  await goto("localhost:3000");
   await screenshot({path: 'debug.png'});
   expect(await text('Lagavulin 16').exists()).toBe(true);
   await closeBrowser();
